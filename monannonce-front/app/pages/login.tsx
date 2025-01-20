@@ -6,14 +6,12 @@ import { Link } from 'expo-router';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Signup() {
+export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-
   const router = useRouter();
 
-  const handleSignup = async () => {
+  const handleLogin = async () => {
     // Placeholder: Replace with actual API call
     const token = 'fake-token'; // Get this from API response
     await AsyncStorage.setItem('userToken', token);
@@ -23,7 +21,7 @@ export default function Signup() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Création de compte</Text>
+      <Text style={styles.title}>Connexion</Text>
 
       <TextInput
         label="Nom d'utilisateur"
@@ -43,15 +41,15 @@ export default function Signup() {
       />
 
       <Button
-        icon="Signup"
+        icon="login"
         mode="contained"
-        onPress={handleSignup}
+        onPress={handleLogin}
         style={styles.button}
       >
         Se connecter
       </Button>
 
-      <Link href={{ pathname: '/signup' }} style={styles.link}>
+      <Link href={{ pathname: '/pages/signup' }} style={styles.link}>
         Pas encore inscrit ? Cliquez ici
       </Link>
     </View>

@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { withAuth } from './utils/auth';
+import { withAuth } from '../utils/auth';
 
 function UserProfil() {
     return (

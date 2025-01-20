@@ -29,20 +29,32 @@ function Index() {
 				mode="outlined"
 				style={{
 					alignSelf: 'flex-end',
+					backgroundColor: '#de4918',
+					borderWidth: 0
 				}}
+				textColor="white"
 				onPress={async () => {
 					const token = await AsyncStorage.getItem('userToken'); // Await the promise
 					console.log(token); // Log the token
 				}}
 				>
-				<Text>Token</Text>
+				<Text>DEBUG- Current User Token</Text>
 			</Button>
 
 			<Button icon="account-cog" mode="outlined" style={{
 				alignSelf: 'flex-end',
 			}} >
-				<Link href={{ pathname : '/login'}}>Votre profil</Link> 
+				<Link href={{ pathname : '/pages/login'}}>Votre profil</Link> 
 			</Button>
+			
+			<Button icon="account-cog" mode="outlined" style={{
+				alignSelf: 'flex-end',
+			}} >
+				<Link href={{ pathname : '/pages/signalements'}}>Liste des signalements</Link> 
+			</Button>
+
+
+			{/*  */}
 
 			<View style={{width: '100%', flexGrow: 2}}>
 				<Text style={{ fontSize: 20 }}>Liste des annonces:</Text>
@@ -58,8 +70,6 @@ function Index() {
 				
 				<Annonces />
 			</View>
-
-			{/* <BottomNavigation /> */}
 
 
 		</View>

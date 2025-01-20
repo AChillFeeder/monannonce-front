@@ -2,20 +2,20 @@ import { Text, View, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
 import { Link } from "expo-router";
 
-// Liste des annonces
-interface AnnonceProps {
+interface SignalementProps {
     id: number;
-    titre: string;
-    description: string;
+    titre: string; // temporaire
+    description: string; // temporaire
 }
 
-export default function Annonce({id, titre, description}: AnnonceProps) {
+export default function Signalement({id, titre, description}: SignalementProps) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{titre}</Text>
+			<Text>Id: {id}</Text>
             <Text>{description}</Text>
 
-            <Button icon="eye" mode="contained" style={styles.button}>
+			<Button icon="eye" mode="contained" style={styles.button}>
 				{/* <Link href={{ pathname : '/annonce_page'}}>Visiter l'annonce</Link> */}
 				<Link href={`/pages/annonce_page?id=${id}`}>
 					Visiter l'annonce
