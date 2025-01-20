@@ -2,18 +2,17 @@ import { Text, View } from "react-native";
 import { Link } from "expo-router";
 import { Button, Searchbar } from "react-native-paper";
 import React from "react"
-import { withAuth } from './utils/auth';
-
-import Annonces  from './components/annonces';
-import BottomNavigation  from './components/bottomNavigation';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// import { Button } from "@rneui/base";
-// 4 écrans avec lien entre eux
+// Utils
+import { withAuth } from './utils/auth';
+
+// Composants
+import Annonces from './components/annonces';
+
+
 function Index() {
 	const [searchQuery, setSearchQuery] = React.useState('');
-
 
 	return (
 		<View
@@ -34,8 +33,8 @@ function Index() {
 				}}
 				textColor="white"
 				onPress={async () => {
-					const token = await AsyncStorage.getItem('userToken'); // Await the promise
-					console.log(token); // Log the token
+					const token = await AsyncStorage.getItem('userToken'); // Token pour tester
+					console.log(token);
 				}}
 				>
 				<Text>DEBUG- Current User Token</Text>
