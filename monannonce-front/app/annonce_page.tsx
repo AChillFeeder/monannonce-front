@@ -1,11 +1,13 @@
 import { Text, View, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
-import { Link } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import ReactImageGallery from "react-image-gallery";
 import { withAuth } from './utils/auth';
 
 // Page d'annonce
 function AnnoncePage() {
+    const { id } = useLocalSearchParams<{ id: string }>();
+
     const images=[
       { source: { uri: 'http://i.imgur.com/XP2BE7q.jpg' } },
       { source: { uri: 'http://i.imgur.com/5nltiUd.jpg' } },
@@ -19,17 +21,7 @@ function AnnoncePage() {
             padding: 10,
         }}>
             <Text style={styles.title}>Page de l'annonce</Text>
-            {/* carousel / gallery */}
-            {/* <Gallery
-              style={{ flex: 1, backgroundColor: 'black' }}
-              images={[
-                { source: require('yourApp/image.png'), dimensions: { width: 150, height: 150 } },
-                { source: { uri: 'http://i.imgur.com/XP2BE7q.jpg' } },
-                { source: { uri: 'http://i.imgur.com/5nltiUd.jpg' } },
-                { source: { uri: 'http://i.imgur.com/6vOahbP.jpg' } },
-                { source: { uri: 'http://i.imgur.com/kj5VXtG.jpg' } }
-              ]}
-            /> */}
+            <Text>Id: {id}</Text>
 
 
             <View style={styles.container}>

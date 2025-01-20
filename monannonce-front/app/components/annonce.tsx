@@ -4,19 +4,23 @@ import { Link } from "expo-router";
 
 // Liste des annonces
 interface AnnonceProps {
+    id: number;
     titre: string;
     description: string;
   }
 
-export default function Annonce({titre, description}: AnnonceProps) {
+export default function Annonce({id, titre, description}: AnnonceProps) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{titre}</Text>
             <Text>{description}</Text>
 
             <Button icon="eye" mode="contained" style={styles.button}>
-				<Link href={{ pathname : '/annonce_page'}}>Visiter l'annonce</Link> 
-			</Button>
+				{/* <Link href={{ pathname : '/annonce_page'}}>Visiter l'annonce</Link> */}
+				<Link href={`/annonce_page?id=${id}`}>
+					Visiter l'annonce
+				</Link>
+            </Button>
         </View>
     )
 }
