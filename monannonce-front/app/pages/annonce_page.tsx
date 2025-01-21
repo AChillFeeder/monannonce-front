@@ -60,6 +60,7 @@ export function AnnoncePage() {
 
 			<Button icon="delete-outline" mode="contained" style={styles.button}>
 				{/* Ne doit être visible que par l'admin et le créateur */}
+				{/* ARCHIVE / ne supprime pas!! */}
 				Supprimer l'annonce
 			</Button>
 			<Button icon="file-document-edit-outline" mode="contained" style={styles.editButton}>
