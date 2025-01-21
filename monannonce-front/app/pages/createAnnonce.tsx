@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Image } from 'react-native';
-import { Text } from 'react-native-paper';
+import { View, StyleSheet, Image } from 'react-native';
+import { Text, Button } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import FormulairePassePartout from '../components/form';
 
@@ -26,7 +26,7 @@ const pickImage = async () => {
     });
 
     if (!result.canceled) {
-    setSelectedImage(result.assets[0].uri);
+        setSelectedImage(result.assets[0].uri);
     }
 };
 
@@ -35,7 +35,9 @@ return (
     <Text style={styles.title}>Créer une nouvelle annonce</Text>
     <FormulairePassePartout fields={formFields} onSubmit={handleFormSubmit} />
 
-    <Button title="Choisir une image" onPress={pickImage} />
+    <Button icon='camera' onPress={pickImage} mode='outlined' style={{borderRadius: 0, marginTop: 15}}>
+        <Text>Choisir une image</Text>
+    </Button>
 
     {selectedImage && (
         <Image source={{ uri: selectedImage }} style={styles.imagePreview} />
