@@ -1,57 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text, Button, TextInput } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 import { Link } from 'expo-router';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import FormulairePassePartout from '../components/form';
 
 export default function Signup() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-
   const router = useRouter();
 
-  const handleSignup = async () => {
-    // Placeholder: Replace with actual API call
-    await AsyncStorage.setItem('userToken', token);
-    console.log('User logged in');
-    router.replace('/pages/index');
+  const handleSignup = async (data: any) => {
+    const { username, email, password } = data;
+    console.log('Username:', username, 'Email:', email, 'Password:', password);
+    // CALL API ICI
   };
+
+  const formFields = [
+    { name: 'username', label: "Nom d'utilisateur", value: '' },
+    { name: 'first_name', label: "Prénom", value: '' },
+    { name: 'email', label: 'Email', value: '' },
+    { name: 'password', label: 'Mot de passe', value: '', secureTextEntry: true },
+  ];
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Création de compte</Text>
-
-      <TextInput
-        label="Nom d'utilisateur"
-        value={username}
-        onChangeText={setUsername}
-        style={styles.input}
-        mode="outlined"
-      />
-
-      <TextInput
-        label="Mot de passe"
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-        secureTextEntry
-        mode="outlined"
-      />
-
-      <Button
-        icon="Signup"
-        mode="contained"
-        onPress={handleSignup}
-        style={styles.button}
-      >
-        Se connecter
-      </Button>
-
-      <Link href={{ pathname: '/pages/signup' }} style={styles.link}>
-        Pas encore inscrit ? Cliquez ici
+      <FormulairePassePartout fields={formFields} onSubmit={handleSignup} />
+      <Link href={{ pathname: '/pages/login' }} style={styles.link}>
+        Déjà inscrit ? Connectez-vous ici
       </Link>
     </View>
   );
@@ -69,12 +44,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     fontWeight: '600',
-  },
-  input: {
-    marginBottom: 16,
-  },
-  button: {
-    marginTop: 16,
   },
   link: {
     marginTop: 24,
