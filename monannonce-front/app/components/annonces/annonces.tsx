@@ -5,8 +5,8 @@ import { ActivityIndicator, MD2Colors } from 'react-native-paper';
 import Annonce from './annonce';
 
 // Utils
-import { withAuth } from '../utils/auth'; 
-import useFetch from "../utils/useFetch";
+import { withAuth } from '../../utils/auth'; 
+import useFetch from "../../utils/useFetch";
 
 interface Annonce {
     id: number;

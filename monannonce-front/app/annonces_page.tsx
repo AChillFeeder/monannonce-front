@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { withAuth } from './utils/auth';
 
 // Composants
-import Annonces from './components/annonces';
+import Annonces from './components/annonces/annonces';
 import { BottomNavigationCustom } from "./components/bottomNavigationCustom";
 
 export function AnnoncesPage() {
@@ -44,7 +44,7 @@ export function AnnoncesPage() {
 			<Button icon="plus" mode="outlined" style={{
 				alignSelf: 'flex-end',
 			}} >
-				<Link href={{ pathname : '/pages/login'}}>Nouvelle annonce</Link> 
+				<Link href={{ pathname : '/pages/createAnnonce'}}>Nouvelle annonce</Link> 
 			</Button>
 
 			<View style={{
