@@ -1,7 +1,13 @@
 import { Text, View, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
 import { Link, useLocalSearchParams } from "expo-router";
+import React from "react";
 
+// PAPER
+import { ActivityIndicator, MD2Colors } from 'react-native-paper';
+import CreateSignalement from "../components/signalement/signalement_create";
+
+// Utils
 import { withAuth } from '../utils/auth';
 import useFetch from "../utils/useFetch";
 
@@ -12,27 +18,20 @@ interface AnnoncePage {
     createdAt: string;
     userId: number;
 }
-interface creatorData {
-    id: number;
-    name: string;
-}
 
 // Page d'annonce
-function AnnoncePage() {
+export function AnnoncePage() {
+	const [visible, setVisible] = React.useState(false);
+
+	const showDialog = () => {console.log('show dialog');setVisible(true)};
+	const hideDialog = () => setVisible(false);
+
 	const { id } = useLocalSearchParams<{ id: string }>();
 
 	const { data, error, loading, refetch } = useFetch<{data: AnnoncePage}>(`/annonces/${id}`);
 
-    if (loading) return <Text>Chargement des informations de l'annonce...</Text>;
+    if (loading) return <ActivityIndicator animating={true} color={MD2Colors.red800} style={{marginTop: 45}}/>;
     if (error) return <Text>Erreur: {error.message}</Text>;
-
-	const images=[
-		{ source: { uri: 'http://i.imgur.com/XP2BE7q.jpg' } },
-		{ source: { uri: 'http://i.imgur.com/5nltiUd.jpg' } },
-		{ source: { uri: 'http://i.imgur.com/6vOahbP.jpg' } },
-		{ source: { uri: 'http://i.imgur.com/kj5VXtG.jpg' } }
-	]
-
 
     return (
         <View style={{
@@ -46,6 +45,19 @@ function AnnoncePage() {
 				<Text style={styles.subtext}>Créé par (Id): {data?.data.userId}</Text>
 			</View>
 
+            <View style={styles.container}>
+                <Text>{data?.data.description}</Text>
+            </View>
+
+			<Button
+				icon="alert-circle-outline"
+				mode="contained"
+				style={styles.button}
+				onPress={showDialog}
+			>
+				Signaler l'annonce
+			</Button>
+
 			<Button icon="delete-outline" mode="contained" style={styles.button}>
 				{/* Ne doit être visible que par l'admin et le créateur */}
 				Supprimer l'annonce
@@ -55,14 +67,10 @@ function AnnoncePage() {
 				Modifier l'annonce
 			</Button>
 
-
-            <View style={styles.container}>
-                <Text>{data?.data.description}</Text>
-            </View>
-			
-			<Button icon="alert-circle-outline" mode="contained" style={styles.button}>
-				<Link href={{ pathname : '/'}}>Signaler l'annonce</Link> 
-			</Button>
+			{/* Dialog component */}
+			<CreateSignalement
+				visible={visible}
+			/>
         </View>
     )
 }

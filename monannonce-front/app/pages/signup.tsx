@@ -15,7 +15,6 @@ export default function Signup() {
 
   const handleSignup = async () => {
     // Placeholder: Replace with actual API call
-    const token = 'fake-token'; // Get this from API response
     await AsyncStorage.setItem('userToken', token);
     console.log('User logged in');
     router.replace('/pages/index');

@@ -11,9 +11,13 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
+  React.useEffect(() => {
+    console.log('user logged out')
+    AsyncStorage.setItem('userToken', '');
+  })
+  
   const handleLogin = async () => {
-    // Placeholder: Replace with actual API call
-    const token = 'fake-token'; // Get this from API response
+    const token = 'fake-token'; // à remplacer avec l'id de l'utilisateur
     await AsyncStorage.setItem('userToken', token);
     console.log('User logged in');
     router.replace('/');
@@ -55,6 +59,7 @@ export default function Login() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
