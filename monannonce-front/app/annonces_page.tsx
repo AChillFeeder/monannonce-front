@@ -4,15 +4,19 @@ import { Button, Searchbar, BottomNavigation } from "react-native-paper";
 import React from "react"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// ******************** //
+// ******************** //
+// Je garde cette page hors du dossier pages vu que cette page est presque l'index de l'application
+// Ceci est la première page visitèe par l'application
+// ******************** //
+
 // Utils
 import { withAuth } from './utils/auth';
 
 // Composants
 import Annonces from './components/annonces/annonces';
-import { BottomNavigationCustom } from "./components/bottomNavigationCustom";
 
 export function AnnoncesPage() {
-	const [searchQuery, setSearchQuery] = React.useState('');
 
 	return (
 		<View
@@ -53,14 +57,6 @@ export function AnnoncesPage() {
 				}}>
 				<Text style={{ fontSize: 20, marginTop: 40 }}>Liste des annonces:</Text>
 				{/* <Text>Toutes les annonces</Text> */}
-
-				<Searchbar 
-					placeholder="Filtrer les annonces"
-					value={searchQuery}
-					onChangeText={setSearchQuery}
-					mode='view'
-					showDivider={true}
-				/>
 				
 				<Annonces />
 			</View>
