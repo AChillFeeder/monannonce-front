@@ -11,7 +11,7 @@ export const withAuth = (Component) => {
       (async () => {
         const isAuthenticated = await useAuth();
         if (!isAuthenticated) {
-          router.replace('/pages/login'); // Redirect to login page if not authenticated
+          router.replace('/pages/user/login'); // Redirect to login page if not authenticated
         }
       })();
     }, []);

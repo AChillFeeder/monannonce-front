@@ -12,16 +12,21 @@ export default function Login() {
 
   React.useEffect(() => {
     console.log('User logged out');
-    AsyncStorage.setItem('userToken', '');
+    AsyncStorage.setItem('userId', '');
   }, []);
 
   const handleLogin = async (data: any) => {
     const { username, password } = data;
     console.log('Username:', username, 'Password:', password);
 
-    const token = 'fake-token';
-    await AsyncStorage.setItem('userToken', token);
+    const token = {
+      userId: '1',
+      userRole: 'admin'
+    };
+    await AsyncStorage.setItem('userId', token.userId);
+    await AsyncStorage.setItem('userRole', token.userRole);
     console.log('User logged in');
+    console.log(await AsyncStorage.getItem('userId'))
     router.replace('/');
   };
 

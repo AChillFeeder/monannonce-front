@@ -48,7 +48,7 @@ export function AnnoncesPage() {
 				<Button icon="plus" mode="outlined" style={{
 					alignSelf: 'flex-end',
 				}} >
-					<Link href={{ pathname : '/pages/createAnnonce'}}>Nouvelle annonce</Link> 
+					<Link href={{ pathname : '/pages/annonces/createAnnonce'}}>Nouvelle annonce</Link> 
 				</Button>
 
 			</View>

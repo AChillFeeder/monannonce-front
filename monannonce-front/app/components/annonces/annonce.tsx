@@ -34,7 +34,7 @@ export default function Annonce({ id, titre, description, image }: AnnonceProps)
                 {/* <Text style={styles.description}>{description}</Text> */}
 
                 <Button icon="eye" mode="contained" style={styles.button}>
-                    <Link href={`/pages/annonceHandler?id=${id}`} style={styles.buttonText}>
+                    <Link href={`/pages/annonces/annonceHandler?id=${id}`} style={styles.buttonText}>
                         Visiter l'annonce
                     </Link>
                 </Button>
