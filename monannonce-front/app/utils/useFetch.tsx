@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 
 // const BASE_URL = process.env.REACT_APP_API_BASE_URL;
-const BASE_URL = 'https://619c018e-8f1a-4655-9d77-e3f54ee98121.mock.pstmn.io'
+// const BASE_URL = 'https://619c018e-8f1a-4655-9d77-e3f54ee98121.mock.pstmn.io'
+const BASE_URL = 'https://8635-185-48-252-9.ngrok-free.app/api'
 console.log(`BASE URL: ${BASE_URL}`)
 
 interface UseFetchOptions {

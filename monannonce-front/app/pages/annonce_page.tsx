@@ -36,52 +36,67 @@ export function AnnoncePage() {
     return (
         <View style={{
             padding: 10,
+			flex: 1
         }}>
-            <Text style={styles.title}>{data?.data.title}</Text>
 
 			<View style={styles.generalData}>
+				<Text style={styles.title}>{data?.data.title}</Text>
 				<Text style={styles.subtext}>Numéro {id}</Text>
 				<Text style={styles.subtext}>Créé le: {data?.data.createdAt}</Text>
 				<Text style={styles.subtext}>Créé par (Id): {data?.data.userId}</Text>
 			</View>
 
-            <View style={styles.container}>
+            <View style={styles.descriptionContainer}>
                 <Text>{data?.data.description}</Text>
             </View>
 
-			<Button
-				icon="alert-circle-outline"
-				mode="contained"
-				style={styles.button}
-				onPress={showDialog}
-			>
-				Signaler l'annonce
-			</Button>
+			<View>
+				<Button
+					icon="currency-eur"
+					mode="contained"
+					style={styles.achatButton}
+				>
+					<Link href={`/pages/createSignalement`}>
+						Acheter ce produit
+					</Link>
+				</Button>
+				<Button
+					icon="alert-circle-outline"
+					mode="contained"
+					style={styles.button}
+				>
+					<Link href={`/pages/createSignalement`}>
+						Signaler l'annonce
+					</Link>
+				</Button>
 
-			<Button icon="delete-outline" mode="contained" style={styles.button}>
-				{/* Ne doit être visible que par l'admin et le créateur */}
-				{/* ARCHIVE / ne supprime pas!! */}
-				Supprimer l'annonce
-			</Button>
-			<Button icon="file-document-edit-outline" mode="contained" style={styles.editButton}>
-				{/* Ne doit être visible que par l'admin et le créateur */}
-				Modifier l'annonce
-			</Button>
+				<Button icon="delete-outline" mode="contained" style={styles.button}>
+					{/* Ne doit être visible que par l'admin et le créateur */}
+					{/* ARCHIVE / ne supprime pas!! */}
+					Supprimer l'annonce
+				</Button>
+				<Button icon="file-document-edit-outline" mode="contained" style={styles.editButton}>
+					{/* Ne doit être visible que par l'admin et le créateur */}
+					Modifier l'annonce
+				</Button>
+			</View>
+
 
 			{/* Dialog component */}
-			<CreateSignalement
+			{/* <CreateSignalement
 				visible={visible}
-			/>
+			/> */}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-	container: {
+	descriptionContainer: {
 		borderColor: 'black',
 		borderWidth: 1,
 		padding: 8,
-		marginTop: 10
+		marginTop: 10,
+		flexGrow: 2,
 	},
 	generalData: {
 		borderColor: 'black',
@@ -110,7 +125,12 @@ const styles = StyleSheet.create({
 		marginTop: 16,
 		borderRadius: 0,
 		backgroundColor: '#ffaa18',
-	}
+	},
+	achatButton: {
+		marginTop: 16,
+		borderRadius: 0,
+		backgroundColor: '#329ba8',
+	},
 });
 
 

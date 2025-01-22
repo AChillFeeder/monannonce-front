@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import { Text, Button } from 'react-native-paper';
+import { Text, Button, Snackbar } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import FormulairePassePartout from '../components/form';
 
 export default function CreateAnnonce() {
 const [selectedImage, setSelectedImage] = useState(null);
 
+const [visible, setVisible] = React.useState(false); // snackbar
+const onDismissSnackBar = () => setVisible(false);
+
 const handleFormSubmit = (data: any) => {
     console.log('Form Data:', { ...data, image: selectedImage });
     // Handle the creation of a new annonce here (e.g., API call)
+    setVisible(true);
+    // doit envoyer vers l'annonce créée
 };
 
 const formFields = [
@@ -30,18 +35,32 @@ const pickImage = async () => {
     }
 };
 
-return (
-    <View style={styles.container}>
-    <Text style={styles.title}>Créer une nouvelle annonce</Text>
-    <FormulairePassePartout fields={formFields} onSubmit={handleFormSubmit} />
+    return (
+        <View style={styles.container}>
+        <Text style={styles.title}>Créer une nouvelle annonce</Text>
+        <FormulairePassePartout fields={formFields} onSubmit={handleFormSubmit} />
 
-    <Button icon='camera' onPress={pickImage} mode='outlined' style={{borderRadius: 0, marginTop: 15}}>
-        <Text>Choisir une image</Text>
-    </Button>
+        <Button icon='camera' onPress={pickImage} mode='outlined' style={{borderRadius: 0, marginTop: 15}}>
+            <Text>Choisir une image</Text>
+        </Button>
 
-    {selectedImage && (
-        <Image source={{ uri: selectedImage }} style={styles.imagePreview} />
-    )}
+        {selectedImage && (
+            <Image source={{ uri: selectedImage }} style={styles.imagePreview} />
+        )}
+
+        <Snackbar
+            visible={visible}
+            onDismiss={onDismissSnackBar}
+            action={{
+                label: 'Voir mes annonces',
+                onPress: () => {
+                // envoyer au profil
+                },
+            }}
+            style={styles.snackbar}
+            >
+            Annonce créée avec succès
+        </Snackbar>
     </View>
 );
 }
@@ -64,4 +83,9 @@ imagePreview: {
     height: 200,
     alignSelf: 'center',
 },
+snackbar: {
+    backgroundColor: '#20421d',
+    color: 'black',
+    width: '100%'
+}
 });

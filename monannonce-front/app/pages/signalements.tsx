@@ -19,8 +19,6 @@ function Signalements() {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: 'black',
-    borderWidth: 1,
     padding: 8,
     marginTop: 10
   },

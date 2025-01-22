@@ -33,7 +33,8 @@ export const BottomNavigationCustom = () => {
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
-      style={{ position: 'absolute', bottom: 0, width: '100%', backgroundColor: 'yellow', height: '100%' }}
+      barStyle={{ backgroundColor: '', opacity: 1, zIndex: 99 }}
+      style={{ position: 'absolute', bottom: 0, width: '100%', height: '100%', zIndex: 99 }}
     />
   );
 };

@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { Link } from "expo-router";
 import { Button, Searchbar, BottomNavigation } from "react-native-paper";
 import React from "react"
@@ -27,37 +27,36 @@ export function AnnoncesPage() {
 			padding: 10
 		}}
 		>
-			
-			<Button
-				icon="account-cog"
-				mode="outlined"
-				style={{
+			<View style={{}}>
+				{/* <Button
+					icon="account-cog"
+					mode="outlined"
+					style={{
+						alignSelf: 'flex-end',
+						backgroundColor: '#de4918',
+						borderWidth: 0
+					}}
+					textColor="white"
+					onPress={async () => {
+						const token = await AsyncStorage.getItem('userToken'); // Pour trouver le token actuel
+						console.log(token);
+					}}
+					>
+					<Text>DEBUG- Current User Token</Text>
+				</Button> */}
+
+				<Button icon="plus" mode="outlined" style={{
 					alignSelf: 'flex-end',
-					backgroundColor: '#de4918',
-					borderWidth: 0
-				}}
-				textColor="white"
-				onPress={async () => {
-					const token = await AsyncStorage.getItem('userToken'); // Token pour tester
-					console.log(token);
-				}}
-				>
-				<Text>DEBUG- Current User Token</Text>
-			</Button>
+				}} >
+					<Link href={{ pathname : '/pages/createAnnonce'}}>Nouvelle annonce</Link> 
+				</Button>
+			</View>
 
-			<Button icon="plus" mode="outlined" style={{
-				alignSelf: 'flex-end',
-			}} >
-				<Link href={{ pathname : '/pages/createAnnonce'}}>Nouvelle annonce</Link> 
-			</Button>
-
+			<Text style={{ fontSize: 20, marginTop: 10, marginBottom: 10 }}>Liste des annonces:</Text>
 			<View style={{
-				// width: '100%', 
-				// flexGrow: 2
-				}}>
-				<Text style={{ fontSize: 20, marginTop: 40 }}>Liste des annonces:</Text>
-				{/* <Text>Toutes les annonces</Text> */}
-				
+				flex: 1
+				// gap: 10,
+			}}>
 				<Annonces />
 			</View>
 		</View>

@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { ActivityIndicator, MD2Colors, Searchbar } from 'react-native-paper';
 import React, { useState } from "react";
 
@@ -11,7 +11,7 @@ import useFetch from "../../utils/useFetch";
 
 interface Annonce {
     id: number;
-    title: string;
+    titre: string;
     description: string;
     createdAt: string;
     userId: number;
@@ -24,7 +24,7 @@ function Annonces() {
 
     const filteredData = data?.data.filter(
         (annonce) =>
-            annonce.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            annonce.titre.toLowerCase().includes(searchQuery.toLowerCase()) ||
             annonce.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -39,15 +39,16 @@ function Annonces() {
                 onChangeText={setSearchQuery}
                 style={{ marginBottom: 10 }}
             />
-
-            {filteredData?.map((annonce: any) => (
-                <Annonce
-                    key={annonce.id}
-                    id={annonce.id}
-                    titre={annonce.title}
-                    description={annonce.description}
-                />
-            ))}
+            <ScrollView style={{overflow: 'scroll'}}>
+                {filteredData?.map((annonce: any) => (
+                    <Annonce
+                        key={annonce.id}
+                        id={annonce.id}
+                        titre={annonce.titre}
+                        description={annonce.description}
+                    />
+                ))}
+            </ScrollView>
         </View>
     );
 }

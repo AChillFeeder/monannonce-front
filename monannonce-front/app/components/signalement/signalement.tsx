@@ -15,7 +15,7 @@ export default function Signalement({id, titre, description}: SignalementProps) 
 			<Text>Id: {id}</Text>
             <Text>{description}</Text>
 
-			<Button icon="eye" mode="contained" style={styles.button}>
+			<Button icon="eye" mode="contained" style={styles.button} buttonColor="#f75736">
 				{/* <Link href={{ pathname : '/annonce_page'}}>Visiter l'annonce</Link> */}
 				<Link href={`/pages/annonce_page?id=${id}`}>
 					Visiter l'annonce

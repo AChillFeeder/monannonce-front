@@ -1,11 +1,11 @@
 # TO-DO
 - [x] Page signalements
-- [ ] Form de création
-- [ ] Revoir souci creation signalement avec un modal
-- [ ] formulaire passe-partout:
-    - descente de donnèe et remontèe de donnée
-
-
+- [x] Form de création
+- [x] formulaire passe-partout:
+    - [x] descente de donnèe et remontèe de donnée
+- [x] Actions sur l'annonce (après création)
+- [ ] Un utilisateur non connecté doit voir les annonces
+- [ ] Transactions
 
 # Back
 - Authentification
