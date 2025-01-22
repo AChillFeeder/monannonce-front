@@ -50,12 +50,6 @@ export function AnnoncesPage() {
 				}} >
 					<Link href={{ pathname : '/pages/createAnnonce'}}>Nouvelle annonce</Link> 
 				</Button>
-				<Button icon="plus" mode="elevated" style={{
-					alignSelf: 'flex-end',
-					marginTop: 10
-				}} >
-					<Link href={{ pathname : '/pages/annonceHandler'}}>Annonce page handler</Link> 
-				</Button>
 
 			</View>
 

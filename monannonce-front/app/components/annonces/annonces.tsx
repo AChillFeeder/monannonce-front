@@ -1,4 +1,4 @@
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View, StyleSheet } from "react-native";
 import { ActivityIndicator, MD2Colors, Searchbar } from 'react-native-paper';
 import React, { useState } from "react";
 
@@ -39,7 +39,10 @@ function Annonces() {
                 onChangeText={setSearchQuery}
                 style={{ marginBottom: 10 }}
             />
-            <ScrollView style={{overflow: 'scroll'}}>
+            <ScrollView 
+                contentContainerStyle={styles.scrollViewContent} 
+                style={styles.scrollView}
+            >
                 {filteredData?.map((annonce: any) => (
                     <Annonce
                         key={annonce.id}
@@ -52,5 +55,27 @@ function Annonces() {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    scrollView: {
+        borderWidth: 1,
+        borderColor: "#ddd",
+        borderRadius: 8,
+        paddingHorizontal: 20,
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 2, // Shadow for Android
+        marginBottom: 16,
+    },
+    scrollViewContent: {
+        flexGrow: 1,
+        justifyContent: "flex-start",
+        gap: 10, // Add spacing between child components
+    },
+});
+
 
 export default withAuth(Annonces);

@@ -30,7 +30,7 @@ export function Commentaires({id}: {id: string}) {
     return (
         <View style={styles.container}>
             {data?.data.commentaires.map((commentaire: any) => (
-                <Commentaire firstName={commentaire.utilisateur.firstName} id={commentaire.id} contenu={commentaire.contenu} createdAt={commentaire.createdAt}/>
+                <Commentaire key={commentaire.id} firstName={commentaire.utilisateur.firstName} id={commentaire.id} contenu={commentaire.contenu} createdAt={commentaire.createdAt}/>
             ))}
         </View>
     );

@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
 import { Button } from "react-native-paper";
 import { Link } from "expo-router";
 import React from "react";
@@ -50,9 +50,9 @@ export function AnnoncePage({ id }: { id: string }) {
             </View>
 
             {/* Description Section */}
-            <View style={styles.descriptionContainer}>
+            <ScrollView style={styles.descriptionContainer}>
                 <Text style={styles.descriptionText}>{data?.data.description}</Text>
-            </View>
+            </ScrollView>
 
             {/* Actions Section */}
             <View style={styles.actions}>
@@ -64,7 +64,7 @@ export function AnnoncePage({ id }: { id: string }) {
                         style={[styles.button, styles.achatButton]}
                     >
                         <Link href={`/pages/createSignalement`} style={styles.buttonText}>
-                            Acheter ce produit
+                            Acheter
                         </Link>
                     </Button>
                     <Button
@@ -73,7 +73,7 @@ export function AnnoncePage({ id }: { id: string }) {
                         style={[styles.button, styles.reportButton]}
                     >
                         <Link href={`/pages/createSignalement`} style={styles.buttonText}>
-                            Signaler l'annonce
+                            Signaler
                         </Link>
                     </Button>
                 </View>
@@ -85,14 +85,18 @@ export function AnnoncePage({ id }: { id: string }) {
                         mode="contained"
                         style={[styles.button, styles.deleteButton]}
                     >
-                        Supprimer l'annonce
+                        <Link href={`/pages/createSignalement`} style={styles.buttonText}>
+                            Supprimer
+                        </Link>
                     </Button>
                     <Button
                         icon="file-document-edit-outline"
                         mode="contained"
                         style={[styles.button, styles.editButton]}
                     >
-                        Modifier l'annonce
+                        <Link href={`/pages/createSignalement`} style={styles.buttonText}>
+                            Modifier
+                        </Link>
                     </Button>
                 </View>
 				{/* <View style={{height: 1500}}>
@@ -157,6 +161,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#ddd",
         marginBottom: 16,
+        minHeight: 70
     },
     descriptionText: {
         fontSize: 14,
@@ -176,7 +181,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 4,
         borderRadius: 8,
-        paddingVertical: 8,
+        paddingVertical: 3,
     },
     achatButton: {
         backgroundColor: "#28a745",
