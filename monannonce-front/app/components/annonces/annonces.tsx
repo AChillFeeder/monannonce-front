@@ -49,6 +49,7 @@ function Annonces() {
                         id={annonce.id}
                         titre={annonce.titre}
                         description={annonce.description}
+                        image={annonce.filepath}
                     />
                 ))}
             </ScrollView>

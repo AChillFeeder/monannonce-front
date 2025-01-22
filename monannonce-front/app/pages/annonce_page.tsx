@@ -9,6 +9,10 @@ import { withAuth } from '../utils/auth';
 import useFetch from "../utils/useFetch";
 import { BASE_URL } from "../utils/useFetch";
 
+//
+import ImageWithLoader from "../components/imageWithLoader";
+
+
 interface AnnoncePage {
     id: number;
     titre: string;
@@ -39,14 +43,14 @@ export function AnnoncePage({ id }: { id: string }) {
             {/* General Data Section */}
             <View style={styles.card}>
                 <Text style={styles.title}>{data?.data.titre}</Text>
-                <Text style={styles.subtext}>Numéro: {id}</Text>
-                <Text style={styles.subtext}>Créé le: {new Date(data?.data.createdAt).toLocaleDateString()}</Text>
-                <Text style={styles.subtext}>Créé par: {data?.data.createur?.firstName}</Text>
-                <Text style={styles.price}>Prix: {data?.data.prix} €</Text>
-                <Image
+                <Text style={styles.subtext}><Text style={styles.info_title}>Numéro</Text> {id}</Text>
+                <Text style={styles.subtext}><Text style={styles.info_title}>Créé le </Text>{new Date(data?.data.createdAt).toLocaleDateString()} <Text style={styles.info_title}>par </Text>{data?.data.createur?.firstName}</Text>
+                <Text style={styles.price}>{data?.data.prix} €</Text>
+                {/* <Image
                     style={styles.image}
-                    source={{ uri: BASE_URL + data?.data.filepath }}
-                />
+                    source={{ uri: BASE_URL + '/' + data?.data.filepath }}
+                /> */}
+                <ImageWithLoader source={{ uri: BASE_URL + '/' + data?.data.filepath }} style={styles.image}/>
             </View>
 
             {/* Description Section */}
@@ -138,10 +142,11 @@ const styles = StyleSheet.create({
         marginBottom: 4,
     },
     price: {
-        fontSize: 16,
+        fontSize: 25,
         fontWeight: "bold",
         color: "#007bff",
         marginVertical: 8,
+        textAlign: 'right'
     },
     image: {
         width: "100%",
@@ -206,6 +211,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: 16,
     },
+    info_title: {
+        fontWeight: 'bold',
+    }
 });
 
 export default withAuth(AnnoncePage);

@@ -1,11 +1,16 @@
-import { ScrollView, Text, View, StyleSheet } from "react-native";
-import { ActivityIndicator, MD2Colors, Searchbar } from 'react-native-paper';
-import React, { useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
+import { ActivityIndicator, MD2Colors, Button } from 'react-native-paper';
+import { Link } from "expo-router";
+import React from "react";
 
 import Commentaire from "./commentaire";
 
-// Composants
-import Annonce from './annonce';
+//*******************
+//*******************
+// IMPORT CREATE SIGNALEMENT //
+//*******************
+//*******************
+
 
 // Utils
 import { withAuth } from '../../utils/auth'; 
@@ -29,6 +34,12 @@ export function Commentaires({id}: {id: string}) {
 
     return (
         <View style={styles.container}>
+            <Button icon="plus" mode="outlined" style={{
+					alignSelf: 'flex-end',
+                    margin: 10
+				}} >
+				<Link href={{ pathname : '/components/signalement/signalement_create'}}>Ajouter un commentaire</Link> 
+			</Button>
             {data?.data.commentaires.map((commentaire: any) => (
                 <Commentaire key={commentaire.id} firstName={commentaire.utilisateur.firstName} id={commentaire.id} contenu={commentaire.contenu} createdAt={commentaire.createdAt}/>
             ))}
