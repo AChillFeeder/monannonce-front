@@ -5,12 +5,12 @@ import React from "react";
 
 // PAPER
 import { ActivityIndicator, MD2Colors } from 'react-native-paper';
-import { withAuth } from '../utils/auth';
-import useFetch from "../utils/useFetch";
-import { BASE_URL } from "../utils/useFetch";
+import { withAuth } from '../../utils/auth';
+import useFetch from "../../utils/useFetch";
+import { BASE_URL } from "../../utils/useFetch";
 
 //
-import ImageWithLoader from "../components/imageWithLoader";
+import ImageWithLoader from "../../components/imageWithLoader";
 
 
 interface AnnoncePage {
@@ -67,7 +67,7 @@ export function AnnoncePage({ id }: { id: string }) {
                         mode="contained"
                         style={[styles.button, styles.achatButton]}
                     >
-                        <Link href={`/pages/createSignalement`} style={styles.buttonText}>
+                        <Link href={`/pages/signalement/createSignalement`} style={styles.buttonText}>
                             Acheter
                         </Link>
                     </Button>
@@ -76,7 +76,7 @@ export function AnnoncePage({ id }: { id: string }) {
                         mode="contained"
                         style={[styles.button, styles.reportButton]}
                     >
-                        <Link href={`/pages/createSignalement`} style={styles.buttonText}>
+                        <Link href={`/pages/signalement/createSignalement`} style={styles.buttonText}>
                             Signaler
                         </Link>
                     </Button>
@@ -89,7 +89,7 @@ export function AnnoncePage({ id }: { id: string }) {
                         mode="contained"
                         style={[styles.button, styles.deleteButton]}
                     >
-                        <Link href={`/pages/createSignalement`} style={styles.buttonText}>
+                        <Link href={`/pages/signalement/createSignalement`} style={styles.buttonText}>
                             Supprimer
                         </Link>
                     </Button>
@@ -98,7 +98,7 @@ export function AnnoncePage({ id }: { id: string }) {
                         mode="contained"
                         style={[styles.button, styles.editButton]}
                     >
-                        <Link href={`/pages/createSignalement`} style={styles.buttonText}>
+                        <Link href={`/pages/signalement/createSignalement`} style={styles.buttonText}>
                             Modifier
                         </Link>
                     </Button>

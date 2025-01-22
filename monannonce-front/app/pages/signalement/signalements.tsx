@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
-import { withAuth } from '../utils/auth';
-import Liste_de_signalements from "../components/signalement/liste_de_signalements";
+import { withAuth } from '../../utils/auth';
+import Liste_de_signalements from "../../components/signalement/liste_de_signalements";
 
 // N'est visible que par les admin
 function Signalements() {

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
-import { AnnoncesPage } from '../annonces_page';
-import Signalements from '../pages/signalements';
-import { UserProfil } from '../pages/user_profil';
-import Login from '../pages/login';
+import { AnnoncesPage } from '../../annonces_page';
+import Signalements from '../../pages/signalement/signalements';
+import { UserProfil } from '../../pages/user/user_profil';
+import Login from '../../pages/user/login';
 
 
 export const BottomNavigationCustom = () => {

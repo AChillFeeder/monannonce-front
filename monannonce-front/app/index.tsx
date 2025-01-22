@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { BottomNavigationCustom } from "./components/bottomNavigationCustom";
+import { BottomNavigationCustom } from "./components/bottomNavigation/bottomNavigationCustom";
 import { withAuth } from "./utils/auth";
 
 import { PaperProvider, DefaultTheme } from 'react-native-paper';

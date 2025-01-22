@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
-import { AnnoncePage } from '../pages/annonce_page';
-import { Commentaires } from './annonces/commentaires'
+import { AnnoncePage } from '../../pages/annonces/ficheAnnonce';
+import { Commentaires } from '../annonces/commentaires'
 
 
 export const BottomNavigationAnnonce = ({idAnnonce}: {idAnnonce: string}) => {

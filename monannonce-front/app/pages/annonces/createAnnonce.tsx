@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { Text, Button, Snackbar } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
-import FormulairePassePartout from '../components/form';
+import FormulairePassePartout from '../../components/form';
 
 export default function CreateAnnonce() {
-const [selectedImage, setSelectedImage] = useState(null);
+const [selectedImage, setSelectedImage] = useState('');
 
 const [visible, setVisible] = React.useState(false); // snackbar
 const onDismissSnackBar = () => setVisible(false);

@@ -1,8 +1,8 @@
 import React from "react";
 
 // Utils
-import { withAuth } from '../utils/auth';
-import { BottomNavigationAnnonce } from "../components/bottomNavigationAnnonce";
+import { withAuth } from '../../utils/auth';
+import { BottomNavigationAnnonce } from "../../components/bottomNavigation/bottomNavigationAnnonce";
 import { View } from "react-native";
 import { Link, useLocalSearchParams } from "expo-router";
 

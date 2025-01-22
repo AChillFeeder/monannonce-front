@@ -3,30 +3,39 @@ import { View, StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 import { Link } from 'expo-router';
-import FormulairePassePartout from '../components/form';
 
-export default function Signup() {
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import FormulairePassePartout from '../../components/form';
+
+export default function Login() {
   const router = useRouter();
 
-  const handleSignup = async (data: any) => {
-    const { username, email, password } = data;
-    console.log('Username:', username, 'Email:', email, 'Password:', password);
-    // CALL API ICI
+  React.useEffect(() => {
+    console.log('User logged out');
+    AsyncStorage.setItem('userToken', '');
+  }, []);
+
+  const handleLogin = async (data: any) => {
+    const { username, password } = data;
+    console.log('Username:', username, 'Password:', password);
+
+    const token = 'fake-token';
+    await AsyncStorage.setItem('userToken', token);
+    console.log('User logged in');
+    router.replace('/');
   };
 
   const formFields = [
     { name: 'username', label: "Nom d'utilisateur", value: '' },
-    { name: 'first_name', label: "Prénom", value: '' },
-    { name: 'email', label: 'Email', value: '' },
     { name: 'password', label: 'Mot de passe', value: '', secureTextEntry: true },
   ];
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Création de compte</Text>
-      <FormulairePassePartout fields={formFields} onSubmit={handleSignup} />
-      <Link href={{ pathname: '/pages/login' }} style={styles.link}>
-        Déjà inscrit ? Connectez-vous ici
+      <Text style={styles.title}>Connexion</Text>
+      <FormulairePassePartout fields={formFields} onSubmit={handleLogin} />
+      <Link href={{ pathname: '/pages/signup' }} style={styles.link}>
+        Pas encore inscrit ? Cliquez ici
       </Link>
     </View>
   );
