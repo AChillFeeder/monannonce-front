@@ -17,7 +17,7 @@ export default function Annonce({id, titre, description}: AnnonceProps) {
 
             <Button icon="eye" mode="contained" style={styles.button}>
 				{/* <Link href={{ pathname : '/annonce_page'}}>Visiter l'annonce</Link> */}
-				<Link href={`/pages/annonce_page?id=${id}`}>
+				<Link href={`/pages/annonceHandler?id=${id}`}>
 					Visiter l'annonce
 				</Link>
             </Button>

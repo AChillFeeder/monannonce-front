@@ -24,7 +24,7 @@ export function AnnoncesPage() {
 			flex: 1,
 			// alignItems: "center",
 			gap: 10,
-			padding: 10
+			padding: 10,
 		}}
 		>
 			<View style={{}}>
@@ -50,14 +50,23 @@ export function AnnoncesPage() {
 				}} >
 					<Link href={{ pathname : '/pages/createAnnonce'}}>Nouvelle annonce</Link> 
 				</Button>
+				<Button icon="plus" mode="elevated" style={{
+					alignSelf: 'flex-end',
+					marginTop: 10
+				}} >
+					<Link href={{ pathname : '/pages/annonceHandler'}}>Annonce page handler</Link> 
+				</Button>
+
 			</View>
 
 			<Text style={{ fontSize: 20, marginTop: 10, marginBottom: 10 }}>Liste des annonces:</Text>
 			<View style={{
-				flex: 1
-				// gap: 10,
+				flex: 1,
 			}}>
 				<Annonces />
+			</View>
+
+			<View style={{height: 80}}>
 			</View>
 		</View>
 	);

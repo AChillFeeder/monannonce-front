@@ -33,12 +33,12 @@ return (
     <View style={styles.container}>
     {fields.map((field) => (
         <TextInput
-        key={field.name}
-        label={field.label}
-        value={formData[field.name]}
-        onChangeText={(value) => handleChange(field.name, value)}
-        style={styles.input}
-        mode="outlined"
+            key={field.name}
+            label={field.label}
+            value={formData[field.name]}
+            onChangeText={(value) => handleChange(field.name, value)}
+            style={styles.input}
+            mode="outlined"
         />
     ))}
     <Button mode="contained" onPress={handleSubmit} style={styles.button}>
